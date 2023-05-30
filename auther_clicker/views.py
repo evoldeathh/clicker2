@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .serializers import UserSerializer, UserSerializerDetail
 from rest_framework import generics
 from .forms import UserForm
-
+from rest_framework.decorators import api_view
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
