@@ -19,11 +19,17 @@ class UserDetail(generics.RetrieveAPIView):
 
 
 def index(request):
+    coreModel = apps.get_model('backend', 'Core')
+    core = coreModel.objects.get(user=request.user)
+    boostsModel = apps.get_model('backend', 'Boost')
+    boosts = boostsModel.objects.filter(core=core)
+
     user = User.objects.filter(id=request.user.id)
     if len(user) != 0:
-        coreModel = apps.get_model('backend', 'Core')
-        core = coreModel.objects.get(user=request.user)
-        return render(request, 'index.html', {'core': core, })
+        return render(request, 'index.html', {
+            'core': core,
+            'boosts': boosts,
+        })
     else:
         return redirect('login')
 
