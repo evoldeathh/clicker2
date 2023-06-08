@@ -1,8 +1,4 @@
-header{
-    background-color: darkcyan;
-    color: white;
-    height: 100px;
-}
+
 
 h3{
     text-align: center;
@@ -11,8 +7,6 @@ h3{
 }
 
 main{
-    margin-top: 50px;
-    margin-bottom: 50px;
 }
 
 .logout{
@@ -29,4 +23,142 @@ main{
 .logout a:hover{
     color: white;
     text-decoration: none;
+}
+.nav{
+    margin-left: 1100px;
+    color: #212529;
+    background-color: #007bff;
+    border-color: #007bff;
+    text-align: right!important;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1px solid;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+}
+.nav-blue{
+display block;
+color: #fff;
+background-color: f5bd049a;
+border-color: #ffd700;
+}
+.nav:hover{
+color: #fff;
+background-color: #0a0a0a;
+border-color: #ffd700;
+}
+/*.nav-blue:hover{
+color: #fff;
+background-color: #0069d9;
+border-color: #0062cc;
+}*/
+.button{
+    display: inline-block;
+    height: 500px
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+
+}
+
+.button-blue{
+color: #fff;
+background-color: f5bd049a;
+border-color: #ffd700;
+
+}
+
+.button-blue:hover{
+color: #fff;
+background-color: #0a0a0a;
+border-color: #ffd700;
+}
+
+.button:hover{
+
+}
+
+.container{
+
+}
+body{
+background: url(../img/dota2.jpg);
+height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+}
+.coins{
+    color: #ffd700;
+    position: absolute;
+    margin-left: 900px;
+    background: url(../img/gold.png);
+   /* background-repeat: no-repeat;
+    background-size: cover;
+    background-position: absolute;*/
+    /*height: 4vh;
+    weight: 4vh;*/
+
+
+
+}
+img{
+position:absolute;
+margin-left: 940px;
+/*margin-bottom: 1500px;*/
+margin-top: -110px;
+}
+.NPC{
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+color: #fff;
+background-color: f5bd049a;
+border-color: #ffd700;
+}
+.boosts{
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+color: #fff;
+/*background-color: 0a0a0a;
+border-color: 0a0a0a;*/
+}
+.boost{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #212529;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+}
+.boost-color{
+color: #fff;
+background-color: f5bd049a;
+border-color: #ffd700;
+}
+.boost-color:hover{
+color: #fff;
+background-color: #0a0a0a;
+border-color: #ffd700;
 }
