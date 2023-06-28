@@ -19,17 +19,19 @@ class UserDetail(generics.RetrieveAPIView):
 
 
 def index(request):
-
     user = User.objects.filter(id=request.user.id)
     if len(user) != 0:
-        coreModel = apps.get_model('backend', 'Core')
-        core = coreModel.objects.get(user=request.user)
-        boostsModel = apps.get_model('backend', 'Boost')
-        boosts = boostsModel.objects.filter(core=core)
-        return render(request, 'index.html', {
-            'core': core,
-            'boosts': boosts,
-        })
+        try:
+            coreModel = apps.get_model('backend', 'Core')
+            core = coreModel.objects.get(user=request.user)
+            boostsModel = apps.get_model('backend', 'Boost')
+            boosts = boostsModel.objects.filter(core=core)
+            return render(request, 'index.html', {
+                'core': core,
+                'boosts': boosts,
+            })
+        except Exception as ex:
+            return user_logout(request)
     else:
         return redirect('login')
 
