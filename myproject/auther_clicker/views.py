@@ -2,6 +2,8 @@ from django.apps import apps
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from rest_framework.response import Response
+from rest_framework import status
 from .serializers import UserSerializer, UserSerializerDetail
 from rest_framework import generics
 from .forms import UserForm
@@ -19,19 +21,24 @@ class UserDetail(generics.RetrieveAPIView):
 
 
 def index(request):
-    user = User.objects.filter(id=request.user.id)
-    if len(user) != 0:
-        try:
-            coreModel = apps.get_model('backend', 'Core')
-            core = coreModel.objects.get(user=request.user)
-            boostsModel = apps.get_model('backend', 'Boost')
-            boosts = boostsModel.objects.filter(core=core)
-            return render(request, 'index.html', {
-                'core': core,
-                'boosts': boosts,
-            })
-        except Exception as ex:
-            return user_logout(request)
+    if len(User.objects.filter(id=request.user.id)) != 0:
+
+        core_model = apps.get_model('backend', 'Core')
+
+        cores = core_model.objects.filter(user=request.user)
+        core = None
+        if len(cores) == 0 and request.user.is_superuser:
+            core = core_model(user=request.user)
+            core.save()
+        else:
+            core = cores.last()
+        boostsModel = apps.get_model('backend', 'Boost')
+        boosts = boostsModel.objects.filter(core=core)
+        return render(request, 'index.html', {
+            'core': core,
+            'boosts': boosts,
+        })
+
     else:
         return redirect('login')
 
